@@ -35,6 +35,11 @@ RUN  chmod 755 /opt/pg/bin/start_postgres.sh
 EXPOSE 5432
 
 RUN rm -rf /tmp/workbench && \
-    apt-get -y clean
+	apt -y autoremove && \
+	apt-get -y clean && \
+	rm -rf /var/lib/apt/lists/* && \
+	apt-get -y remove make gcc g++ flex bison \
+	wget curl libzstd1-dev \
+	zlib1g-dev libsystemd-dev libssl-dev 
 
 ENTRYPOINT /docker-entrypoint.sh 
