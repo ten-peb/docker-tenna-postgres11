@@ -43,13 +43,13 @@ node("master"){
     def String[] message = [
     "Greetings,",
     "This is to inform you that the Docker image ${image_base_tag} version ${image_version_tag}",
-    "This image contains Ubuntu:18.04 LTS  and",
-    "the Puppet agent and Nagios NRPE server",
+    "This image contains PostgreSQL 11   and",
+    "the packages inherited from tenna/ubuntu:latest image",
     "This was successfully built and pushed to the registry.",
     " ",
     "Sincerely,",
     "Your faithful servant."," Jenkins"
     ]
-    sendEmail(qaTeam(),"tenna-ubuntu built",message.join("\n"))
+    sendEmail(qaTeam(),"tenna-postgres11 built",message.join("\n"))
   }
 }
